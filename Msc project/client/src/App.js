@@ -6,6 +6,12 @@ import Blog from './pages/Blog'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Contact from './pages/contact'
+import Login from './pages/Login'
+import Logout from "./pages/Logout"
+import Register from './pages/Register'
+
+
+
 import './style.scss'    
 
 
@@ -36,6 +42,18 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact/>
+      },
+      {
+        path: '/register',
+        element: <Register/>
+      },
+      {
+        path: '/login',
+        element: <Login/>
+      },
+      {
+        path: '/logout',
+        element: <Logout/>
       },
     ]
   },
