@@ -472,7 +472,77 @@
                 }
             }
         }
+
+         // PROFILE 
+
+
+
+         .filter-controls{
+            padding-top: 3%;
+            padding-left: 40%;
+        }
+
+        .filter-controls select{
+            height: 30px;
+        }
+
+          .filter-row {
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            width: 100px;
+
+            .inputform{
+                width: 200px;
+                height: 20px;
+                border: 1px solid black;
+            }
+          }
+          
+          .filter-row select,
+          .filter-row input {
+            height: 30px;
+            width: auto; 
+          }
+        .filter-controls input{
+            height: 15px;
+            width: 5px;
+        }
+
         
+        
+        .user-list {
+            padding-top: 5%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .user-list .message_button{
+            display: inline-block;
+            padding: 15px 20px;
+            background-color: #7e92cb;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+  
+        .user {
+            background-color: #5d79c6;
+            border: 8px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            width: 305px;
+            margin-right: 20px; 
+            margin-bottom: 20px; 
+            box-sizing: border-box;
+            height: 250px;
+        }
+  
+        .user-details {
+            margin-bottom: 10px;
+        }
 
 
     

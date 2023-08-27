@@ -9,6 +9,7 @@ import Contact from './pages/contact'
 import Login from './pages/Login'
 import Logout from "./pages/Logout"
 import Register from './pages/Register'
+import Profile from './pages/Profile'
 
 
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         element: <Home/>
       },
       {
+        path: '/profile/:userId',
+        element: <Profile/>
+      },
+      {
         path: '/blog',
         element: <Blog/>
       },
@@ -57,6 +62,10 @@ const router = createBrowserRouter([
       },
     ]
   },
+  {
+    path:'/profile/userId',
+    element:<p>Invalid URL</p>
+  }
 ]);
 
 

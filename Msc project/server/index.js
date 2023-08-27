@@ -134,6 +134,23 @@ app.post('/login', async (req, res) => {
   }
 });
 
+// User Profile
+
+app.get('/profile/:userId', async (req, res) => {
+  try {
+    const [userData] = await db.promise().query(`
+      SELECT u.id, u.username, u.email, u.name, univ.name AS university_name, course.name AS course_name
+      FROM users u
+      JOIN universities univ ON u.university_id = univ.id
+      JOIN courses course ON u.course_id = course.id
+    `);
+    res.json(userData);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching user profiles' });
+  }
+});
+
 
 app.listen(3001, () => {
   console.log('Server started on port 3001');
