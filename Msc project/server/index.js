@@ -105,6 +105,7 @@ app.post('/register', async (req, res) => {
   }
 });
 
+
 // login route 
 
 app.post('/login', async (req, res) => {
@@ -148,6 +149,98 @@ app.get('/profile/:userId', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error fetching user profiles' });
+  }
+});
+
+// messages route 
+
+app.get('/messages/:userId/:receiverId', async (req, res) => {
+  const { userId, receiverId } = req.params;
+  try {
+    const messages = await db.promise().query(
+      'SELECT * FROM messages WHERE (sender_id = ? AND receiver_id = ?) OR (sender_id = ? AND receiver_id = ?) ORDER BY timestamp',
+      [userId, receiverId, receiverId, userId]
+    );
+    res.json(messages[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching messages' });
+  }
+});
+
+
+app.post('/messages/send', upload.single('file'), async (req, res) => {
+  const { senderId, receiverId, message } = req.body;
+  const file = req.file; 
+
+  try {
+    let fileId = null;
+    if (file) {
+      const { originalname, mimetype, buffer } = file;
+
+      
+      const result = await db.promise().query(
+        'INSERT INTO files (filename, mime_type, file_data) VALUES (?, ?, ?)',
+        [originalname, mimetype, buffer]
+      );
+      fileId = result[0].insertId;
+    }
+
+    const result = await db.promise().query(
+      'INSERT INTO messages (sender_id, receiver_id, message, file_id) VALUES (?, ?, ?, ?)',
+      [senderId, receiverId, message, fileId]
+    );
+
+    const insertedMessageId = result[0].insertId;
+    const insertedMessage = {
+      id: insertedMessageId,
+      sender_id: senderId,
+      receiver_id: receiverId,
+      message,
+      file_id: fileId,
+      timestamp: new Date(),
+    };
+
+    res.json(insertedMessage);
+  } catch (error) {
+    console.error('Error sending message:', error);
+    res.status(500).json({ message: 'Error sending message' });
+  }
+});
+
+
+// files route
+app.get('/files', async (req, res) => {
+  try {
+    const [files] = await db.promise().query('SELECT id, filename FROM files');
+    res.json(files);
+  } catch (error) {
+    console.error('Error fetching files:', error);
+    res.status(500).json({ message: 'Error fetching files' });
+  }
+});
+
+
+app.get('/files/:id', async (req, res) => {
+  const fileId = req.params.id;
+
+  try {
+    const fileData = await db.promise().query(
+      'SELECT * FROM files WHERE id = ?',
+      [fileId]
+    );
+
+    if (fileData[0].length === 0) {
+      return res.status(404).json({ message: 'File not found' });
+    }
+
+    const file = fileData[0][0];
+    const fileBuffer = Buffer.from(file.file_data, 'base64');
+
+    res.set('Content-Type', file.mime_type);
+    res.send(fileBuffer);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching file' });
   }
 });
 

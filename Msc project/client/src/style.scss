@@ -544,8 +544,95 @@
             margin-bottom: 10px;
         }
 
+        // Messages
 
-    
+        .messages-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+          
+        .header {
+            margin-left: 82%;
+            color: white;
+            height: 30px;
+            width: 170px;
 
+        }
+          
+        .go-back {
+            background: blue;
+            border: 2px solid blue ;
+            color: white;
+            cursor: pointer;
+        }
+          
+        .message-list {
+            flex-grow: 1;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(177, 209, 210);
+        }
+          
+         .message {
+            max-width: 80%;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+          
+        .sender {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+        }
+          
+        .receiver {
+            background-color: #ffffff;
+            align-self: flex-start;
+        }
+          
+        .message p {
+            margin: 0;
+            word-wrap: break-word;
+            padding: 5px;
+        }
+          
+        .timestamp {
+            font-size: 12px;
+            color: rgb(177, 209, 210);
+        }
+          
+        .message-input {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: rgb(177, 209, 210);
+            border-top: 1px solid #ccc;
+        }
+          
+        .message-input textarea {
+            flex-grow: 1;
+            resize: none;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+        }
+          
+        .file-label {
+            margin-left: 10px;
+            font-size: 14px;
+            color: #075e54;
+            cursor: pointer;
+        }
+          
+        button {
+            margin-left: 10px;
+            padding: 6px 10px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     }
 }

@@ -10,6 +10,8 @@ import Login from './pages/Login'
 import Logout from "./pages/Logout"
 import Register from './pages/Register'
 import Profile from './pages/Profile'
+import Messages from "./pages/Messages"
+import './style.scss'
 
 
 
@@ -60,6 +62,10 @@ const router = createBrowserRouter([
         path: '/logout',
         element: <Logout/>
       },
+      {
+        path:'/messages/:userId/:receiverId',
+        element: <Messages />,
+      }
     ]
   },
   {
