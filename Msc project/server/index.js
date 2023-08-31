@@ -209,17 +209,8 @@ app.post('/messages/send', upload.single('file'), async (req, res) => {
 });
 
 
-// files route
-app.get('/files', async (req, res) => {
-  try {
-    const [files] = await db.promise().query('SELECT id, filename FROM files');
-    res.json(files);
-  } catch (error) {
-    console.error('Error fetching files:', error);
-    res.status(500).json({ message: 'Error fetching files' });
-  }
-});
 
+// FILES ROUTE 
 
 app.get('/files/:id', async (req, res) => {
   const fileId = req.params.id;
