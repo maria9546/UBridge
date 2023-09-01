@@ -6,10 +6,7 @@ function Navbar() {
   const location = useLocation();
 
   const showSignIn = ['/','/blog','/register','/login','/contact'].includes(location.pathname)
-  const showLogout = location.pathname.startsWith('/profile/') || location.pathname.startsWith('/messages/'); 
-  const showOtherMenus = !showLogout;
-  
-
+  const showLogout = location.pathname.startsWith('/profile/') || location.pathname.startsWith('/messages/');   
 
   return (
     <div className='navbar'>
@@ -18,7 +15,6 @@ function Navbar() {
           <img src={Logo} alt=''/>
         </div>
         <div className='links'>
-        {showOtherMenus && (
           <>
           <Link className='link' to="">
             <h6>HOME</h6>
@@ -33,7 +29,6 @@ function Navbar() {
             <h6>CONTACT</h6>
           </Link>
           </>
-        )}
           {showSignIn && (
             <Link className='link' to='/register'>
               <h6>SIGNUP/SIGNIN</h6>
