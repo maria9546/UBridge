@@ -11,6 +11,7 @@ import Logout from "./pages/Logout"
 import Register from './pages/Register'
 import Profile from './pages/Profile'
 import Messages from "./pages/Messages"
+import Service from "./pages/Services"
 import './style.scss'
 
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: '/profile/:userId',
         element: <Profile/>
+      },
+      {
+        path: '/service',
+        element: <Service/>
       },
       {
         path: '/blog',
