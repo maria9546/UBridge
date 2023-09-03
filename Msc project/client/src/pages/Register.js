@@ -56,6 +56,7 @@ const Register = () => {
   };
 
   return (
+    <div>
     <div class='auth-container'>
       <div class='auth-image'>
       </div>
@@ -106,6 +107,8 @@ const Register = () => {
         </span>
       </form>
       </div>
+      </div>
+      <br/><br/><br/>
       </div>
   );
 };

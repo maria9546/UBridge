@@ -1,10 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import image1 from '../img/image1.jpg';
-import image2 from '../img/image2.jpeg';
-import image3 from '../img/image3.jpg';
-import image4 from '../img/image4.jpg';
+import img1 from '../img/img1.jpeg'
 import Icon1 from '../img/icon 1.png'
 import Icon2 from '../img/icon 2.png'
 import Icon3 from '../img/icon3.png'
@@ -14,24 +11,10 @@ import Icon4 from '../img/icon 4.jpeg'
 function Home() {
   return (
     <div class='home'>
-      <section class='image-slider'>
-        <Carousel>
-          <div>
-            <p class='text'>Strengthening spirit, bridging the future. <br/>
-            Discover endless opportunities for education and growth on our platform. <br/>
-            Join us in building a better future!</p>
-            <img src={image1} alt='Slide 1' class='slider-image' />
-          </div>
-          <div>
-            <img src={image2} alt='Slide 2' class='slider-image' />
-          </div>
-          <div>
-            <img src={image3} alt='Slide 3' class='slider-image' />
-          </div>
-          <div>
-            <img src={image4} alt='Slide 4' class='slider-image' />
-          </div>
-        </Carousel>
+      <section className='image-slider'>
+        <div className='image-container'>
+          <img src={img1} alt='Slide 1' className='slider-image' />
+        </div>
       </section>
       <div class='about'>
         <h1>EXPLORE OUR FEATURES</h1>
@@ -86,13 +69,10 @@ function Home() {
       </div>
       <div class='feedback'>
         <div class='feedbacktext'>Share your thoughts how we can improve our website.Your feedback is valuable for us</div>
-        <a href="/contact" class="button">GIVE FEEDBACK</a>
+        <a href="/contact" class="button">GIVE FEEDBACK</a><br/><br/><br/>
       </div>
     </div>
   );
 };
 
 export default Home;
-
-
-

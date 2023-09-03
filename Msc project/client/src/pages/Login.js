@@ -30,6 +30,7 @@ function Login() {
 
   
   return (
+    <div>
     <div class='auth-container'>
       <div class='auth-image'>
       </div>
@@ -55,6 +56,8 @@ function Login() {
         </span>
       </form>
     </div>
+    </div>
+    <br/><br/>
     </div>
   );
 }

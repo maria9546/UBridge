@@ -8,7 +8,6 @@ const ContactForm = () => {
   const [feedback, setFeedback] = useState('');
 
   const handleSubmit = async (e) => {
-    console.log("gvbuygfgvbhgyfgvbg")
     e.preventDefault();
     try {
       await axios.post('http://localhost:3001/contact', { name, email, message });
@@ -17,12 +16,12 @@ const ContactForm = () => {
       setEmail('');
       setMessage('');
     } catch (error) {
-        console.log("error",error)
-        setFeedback('An error occurred while sending your feedback.');
+      setFeedback('An error occurred while sending your feedback.');
     }
   };
 
   return (
+    <div>
     <div className='contact-form-container'>
       <h1>Contact Us</h1>
       <form onSubmit={handleSubmit}>
@@ -45,10 +44,12 @@ const ContactForm = () => {
           placeholder='Message'
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-        /><br/><br/>
+        /><br/><br/><br/>
         <button type='submit'>Send Message</button>
         <p className='feedback'>{feedback}</p>
       </form>
+    </div>
+    <br/><br/><br/>
     </div>
   );
 };

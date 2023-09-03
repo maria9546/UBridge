@@ -72,10 +72,12 @@ const Profile = () => {
 
   return (
   <div>
+    <br/><br/><br/><br/><br/>
   <h1>Welcome {loggedInUserName && ` ${loggedInUserName}`}</h1>
   <div class="filter-controls">
   <div class="filter-row">
     <select
+    className='select-box'
       value={selectedCourse}
       onChange={(e) => {
         setSelectedCourse(e.target.value);
@@ -90,6 +92,7 @@ const Profile = () => {
       ))}
     </select>
     <select
+    className='select-box'
       value={selectedUniversity}
       onChange={(e) => {
         setSelectedUniversity(e.target.value);
@@ -106,7 +109,7 @@ const Profile = () => {
     <input
       type="text"
       placeholder="Search by name or email"
-      class="inputform"
+      className="input-form"
       value={searchInput}
       onChange={(e) => setSearchInput(e.target.value)}
     />
