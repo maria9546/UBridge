@@ -7,12 +7,24 @@ const Messages = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
+  const [receiverName, setReceiverName] = useState('');
+
 
   const backToProfile = () => {
     window.history.go(-1); 
   };
 
   useEffect(() => {
+
+    axios
+      .get(`http://localhost:3001/user/${receiverId}`)
+      .then(response => {
+        setReceiverName(response.data.username);
+      })
+      .catch(error => {
+        console.error('Error fetching receiver name:', error);
+      });
+
     axios.get(`http://localhost:3001/messages/${userId}/${receiverId}`)
       .then(response => {
         console.log("API Response:", response.data.messages);
@@ -52,7 +64,7 @@ const Messages = () => {
     <div>
     <div className='message_main'>
       <div className='header'>
-      <h1>Message</h1>
+      <h1>Message with {receiverName}</h1>
       <button className="go-back" onClick={backToProfile}>Back to Profile Page</button>
     </div><br/><br/>
     <div className='message-container'>
