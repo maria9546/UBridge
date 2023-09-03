@@ -235,6 +235,28 @@ app.get('/files/:id', async (req, res) => {
   }
 });
 
+//get the receivername
+app.get('/user/:receiverId', async (req, res) => {
+  const receiverId = req.params.receiverId;
+
+  try {
+
+    const receiver = await db.promise().query(
+      'SELECT username FROM users WHERE id = ?',
+      [receiverId]
+    );
+
+    if (receiver[0].length === 0) {
+      return res.status(404).json({ message: 'Receiver not found' });
+    }
+
+    const receiverName = receiver[0][0].username;
+    res.json({ username: receiverName });
+  } catch (error) {
+    console.error('Error fetching receiver name:', error);
+    res.status(500).json({ message: 'Error fetching receiver name' });
+  }
+});
 
 app.listen(3001, () => {
   console.log('Server started on port 3001');
