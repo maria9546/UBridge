@@ -5,8 +5,10 @@ import Logo from "../img/logo.png"
 function Navbar() {
   const location = useLocation();
 
-  const showSignIn = ['/','/blog','/register','/login','/contact'].includes(location.pathname)
+  const showSignIn = ['/','/blog','/contact','/service'].includes(location.pathname)
   const showLogout = location.pathname.startsWith('/profile/') || location.pathname.startsWith('/messages/');   
+  const showLogin = ['/register'].includes(location.pathname)
+  const showRegister = ['/login'].includes(location.pathname)
 
   return (
     <div className='navbar'>
@@ -19,7 +21,7 @@ function Navbar() {
           <Link className='link' to="">
             <h6>HOME</h6>
           </Link>
-          <a className="link" href="/#service">
+          <a className="link" href="/service">
             <h6>SERVICES</h6>
           </a>
           <Link className='link' to="/blog">
@@ -32,6 +34,16 @@ function Navbar() {
           {showSignIn && (
             <Link className='link' to='/register'>
               <h6>SIGNUP/SIGNIN</h6>
+            </Link>
+          )}
+          {showLogin && (
+            <Link className='link' to='/login'>
+              <h6>LOGIN</h6>
+            </Link>
+          )}
+          {showRegister && (
+            <Link className='link' to='/register'>
+              <h6>REGISTER</h6>
             </Link>
           )}
           {showLogout &&(

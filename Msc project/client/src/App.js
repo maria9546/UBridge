@@ -1,4 +1,3 @@
-
 import React from "react";
 import { createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
 import Home from './pages/Home'
@@ -13,11 +12,6 @@ import Profile from './pages/Profile'
 import Messages from "./pages/Messages"
 import Service from "./pages/Services"
 import './style.scss'
-
-
-
-import './style.scss'    
-
 
 const Layout = () => {
   return (

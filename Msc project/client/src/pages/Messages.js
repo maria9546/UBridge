@@ -49,13 +49,14 @@ const Messages = () => {
   };
 
   return (
+    <div>
+    <div className='message_main'>
+      <div className='header'>
+      <h1>Message</h1>
+      <button className="go-back" onClick={backToProfile}>Back to Profile Page</button>
+    </div><br/><br/>
     <div className='message-container'>
-      <div className="header">
-      <button className="go-back" onClick={backToProfile}>         
-       See All Students</button>
-      </div>
-      <h1>Messages </h1>
-      <div className="message-list">
+    <div className="message-list">
         {messages.map(message => (
           <div
             key={message.id}
@@ -72,7 +73,6 @@ const Messages = () => {
                 View File
               </a>
             )}
-            
             <p className="timestamp">
               {new Date(message.timestamp).toLocaleTimeString()}
             </p>
@@ -88,10 +88,12 @@ const Messages = () => {
         <label className='file-label'>
           <input type='file' onChange={handleFileUpload}/>
           Attach File
-        </label>
+        </label><br/>
         <button onClick={handleSendMessage}>Send</button>
-        
       </div>
+    </div>
+    </div>
+    <br/><br/>
     </div>
   );
 };
