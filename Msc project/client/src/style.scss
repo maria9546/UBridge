@@ -236,7 +236,7 @@
                 flex: 1;
                 color:#5f4100;
                 font-weight:bolder;
-                font-size: 40px;
+                font-size: 32px;
                 font-style: italic;
 
             }
@@ -247,7 +247,7 @@
                 color: #fff;
                 border: none;
                 cursor: pointer;
-                font-size: x-large;
+                font-size: large;
                 text-decoration: none;
                 height: 20px;
                 border-radius: 30px;
@@ -391,10 +391,12 @@
                 h1{
                     font-size: 46px;
                     line-height: normal;
+                    color: #005f41;
                 }
 
                 p{
                     font-size: 18px;
+                    font-style: italic;
                 }
             }
             }

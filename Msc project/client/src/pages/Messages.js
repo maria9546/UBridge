@@ -27,7 +27,6 @@ const Messages = () => {
 
     axios.get(`http://localhost:3001/messages/${userId}/${receiverId}`)
       .then(response => {
-        console.log("API Response:", response.data.messages);
         setMessages(response.data);
       })
       .catch(error => {
