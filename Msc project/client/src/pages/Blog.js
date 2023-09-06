@@ -5,7 +5,7 @@ const Blog = () => {
   const posts = [
     {
       id:1,
-      title: "Student life at Roehampton University",
+      title: "Student life at University of Roehampton",
       desc: "I met students from all over the world, made friends and discovered different cultures. The universities here are great, with modern resources and excellent professors. They have helped me think critically and solve problems in my field.Living in a new country has made me more independent and flexible. Every day I learn something new about the local customs and traditions which was very exciting.",
       img: "https://www.montevallo.edu/wp-content/uploads/2021/05/aGreen_resized.jpg",
     },

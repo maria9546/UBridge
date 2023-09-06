@@ -27,7 +27,6 @@ const db = mysql.createConnection({
 // contact
 app.post('/contact', async (req, res) => {
   const { name, email, message } = req.body;
-  console.log(req.body)
 
   try {
     await db.promise().query(
