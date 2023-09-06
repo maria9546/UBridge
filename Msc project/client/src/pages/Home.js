@@ -27,23 +27,20 @@ function Home() {
         <h1>OUR PROVIDING SERVICES</h1>
         <div class="icon">
           <img src={Icon1} alt="icon1"/>
-          <p>International students face one of the challenges of connecting with students from other universities ,
-            Using this website students can connect with peers from other universities .</p>
+          <p>Students can connect with peers from other universities .</p>
         </div>
         <div class="icon">
           <img src={Icon2} alt="icon2"/>
           <p>Students can share accomodation availabilities, study resources, study materials and job
-             opportunities with peers.It will help to improve career as stronger.</p>
+             opportunities with peers.</p>
         </div>
         <div class="icon">
           <img src={Icon3} alt="icon3"/>
-          <p>Students can take advice from the graduate students about the career opportunities, 
-            university life  and the lifestyle of the UK.</p>
+          <p>Students can take advice from the graduate students about the career opportunities.</p>
         </div>
         <div class="icon">
           <img src={Icon4} alt="icon4"/>
-          <p>Students can filter the students based on the courses and universities .It will help to find out who has taken the specific courses ,
-            and who is studying in the specific universities based on our needs.</p>
+          <p>Students can filter the students based on the courses and universities.</p>
         </div>
       </div>
       <div class='FAQ'>

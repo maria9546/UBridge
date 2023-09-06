@@ -18,46 +18,48 @@ function Login() {
       
   
       if (response.data.message === 'Login successful') {
-        const userId = response.data.userId;
-        window.location.href = `/profile/${userId}`
+        const userData = response.data;
+        localStorage.setItem('userData',JSON.stringify(userData));
+
+        window.location.href = `/profile/${userData.userId}`;
       } else {
-        setMessage('email or password is incorrect');
+        setMessage('Email or password is incorrect');
       }
     } catch (error) {
-      setMessage('email or password is incorrect');
+      setMessage('Email or password is incorrect');
     }
   };
 
   
   return (
     <div>
-    <div class='auth-container'>
-      <div class='auth-image'>
+      <div className="auth-container">
+        <div className="auth-image"></div>
+        <div className="auth-form">
+          <h1>Login</h1>
+          <form>
+            <input
+              className="registerinput"
+              type="text"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              className="registerinputpassword"
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button onClick={handleLogin}>Login</button>
+            <p style={{ color: 'red' }}>{message}</p>
+            <span>
+              Don't have an account? <Link to="/register">Register</Link>
+            </span>
+          </form>
+        </div>
       </div>
-      <div class='auth-form'>
-      <h1>Login</h1>
-      <form>
-        <input
-          class="registerinput"
-          type='text'
-          placeholder='Email'
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          class="registerinputpassword"
-          type='password'
-          placeholder='password'
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button onClick={handleLogin}>Login</button>
-        <p style={{ color: 'red' }}>{message}</p>
-        <span>
-          Don't have an account? <Link to='/register'>Register</Link>
-        </span>
-      </form>
-    </div>
-    </div>
-    <br/><br/>
+      <br />
+      <br />
     </div>
   );
 }
