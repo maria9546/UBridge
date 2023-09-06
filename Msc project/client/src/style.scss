@@ -461,6 +461,13 @@
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
+
+        .no-result{
+            padding-left: 30%;
+            font-size: 35px;
+            color: #005f41;
+            font-weight: 400;
+        }
     }
 
     .user-list .message_button{
