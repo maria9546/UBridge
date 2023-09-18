@@ -63,7 +63,7 @@ const Messages = () => {
     <div>
     <div className='message_main'>
       <div className='header'>
-      <h1>Message with {receiverName}</h1>
+      <h1>Chat with {receiverName}</h1>
       <button className="go-back" onClick={backToProfile}>Back to Profile Page</button>
     </div><br/><br/>
     <div className='message-container'>

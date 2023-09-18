@@ -11,6 +11,7 @@ import Register from './pages/Register'
 import Profile from './pages/Profile'
 import Messages from "./pages/Messages"
 import Service from "./pages/Services"
+import UserProfile from "./pages/UserProfile";
 import './style.scss'
 
 const Layout = () => {
@@ -64,7 +65,11 @@ const router = createBrowserRouter([
       {
         path:'/messages/:userId/:receiverId',
         element: <Messages />,
-      }
+      },
+      {
+        path: '/userprofile/:userId',
+        element: <UserProfile />,
+      },
     ]
   },
   {
