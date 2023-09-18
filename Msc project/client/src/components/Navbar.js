@@ -37,6 +37,9 @@ function Navbar() {
                 <Link className="link" to={userId ? `/profile/${userId}` : '/login'}>
                   <h6>PROFILE</h6>
                 </Link>
+                <Link className="link" to={userId ? `/userprofile/${userId}` : '/login'}>
+                  <h6>USER PROFILE</h6>
+                </Link>
               <Link className="link" to="/logout" onClick={handleLogout}>
                 <h6>LOGOUT</h6>
               </Link>

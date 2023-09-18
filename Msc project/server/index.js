@@ -257,6 +257,61 @@ app.get('/user/:receiverId', async (req, res) => {
   }
 });
 
+
+// User Profile Page route
+app.get('/userprofile/:userId', async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const [userData] = await db.promise().query(`
+      SELECT u.id, u.username, u.email, u.name, univ.name AS university_name, course.name AS course_name
+      FROM users u
+      JOIN universities univ ON u.university_id = univ.id
+      JOIN courses course ON u.course_id = course.id
+      WHERE u.id = ?
+    `, [userId]);
+    res.json(userData);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching user profile' });
+  }
+});
+
+// Edit user page route
+app.put('/userprofile/:userId', async (req, res) => {
+  const { userId } = req.params;
+  const updatedUserData = req.body;
+
+  try {
+    if (updatedUserData.password) {
+      const hashedPassword = await bcrypt.hash(updatedUserData.password, 10);
+
+      await db.promise().query(`
+        UPDATE users u
+        JOIN universities univ ON u.university_id = univ.id
+        JOIN courses course ON u.course_id = course.id
+        SET u.username = ?, u.email = ?, u.name = ?, u.password = ?, univ.name = ?, course.name = ?
+        WHERE u.id = ?
+      `, [updatedUserData.username, updatedUserData.email, updatedUserData.name, hashedPassword, updatedUserData.university_name, updatedUserData.course_name, userId]);
+    } else {
+      await db.promise().query(`
+        UPDATE users u
+        JOIN universities univ ON u.university_id = univ.id
+        JOIN courses course ON u.course_id = course.id
+        SET u.username = ?, u.email = ?, u.name = ?, univ.name = ?, course.name = ?
+        WHERE u.id = ?
+      `, [updatedUserData.username, updatedUserData.email, updatedUserData.name, updatedUserData.university_name, updatedUserData.course_name, userId]);
+    }
+
+    res.json({ message: 'User profile updated successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error updating user profile' });
+  }
+});
+
+
+
+
 app.listen(3001, () => {
   console.log('Server started on port 3001');
 });

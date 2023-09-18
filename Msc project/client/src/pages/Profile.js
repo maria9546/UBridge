@@ -125,7 +125,7 @@ const Profile = () => {
                 <p>{user.course_name}</p>
                 {user.id !== LoggedUserId && user.id !== Number(userId) && (
                   <Link to={`/messages/${userId}/${user.id}`} className="message_button">
-                    Message
+                    Send Message
                   </Link>
                 )}
               </div>

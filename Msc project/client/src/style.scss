@@ -15,6 +15,7 @@
 // Navbar
 
     .navbar {
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -23,7 +24,7 @@
         }
 
     .container {
-        padding: 2% 0px;
+        padding: 1% 0px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -31,11 +32,14 @@
 
     .logo img {
         width: 100px;
+        padding-left: 225%;
+
         }
 
     .links {
         display: flex;
         gap: 10px;
+        padding-left: 65%;
     }
 
     .links h6 {
@@ -109,6 +113,8 @@
         position: relative;
         text-align: center;
         color: white;
+        padding-top: 11%;
+
         .text{
             position: absolute;
             font-weight: bolder;
@@ -342,7 +348,7 @@
 // BLOG
 
     .blog{
-        padding-top: 10%;
+        padding-top: 12%;
 
         .posts{
             margin-top: 50px;
@@ -407,8 +413,12 @@
 
 // PROFILE 
 
+    div h1{
+        padding-top: 5%;
+    }
+
     .filter-controls{
-        padding-top: 3%;
+        padding-top: 4%;
         padding-left: 40%;
     }
 
@@ -537,7 +547,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        max-height: 100px; 
+        max-height: 130px;
         padding: 5px;
         border-radius: 10px;
         margin-bottom: 10px; 
@@ -566,6 +576,7 @@
         background-image:url(https://images.pexels.com/photos/5537976/pexels-photo-5537976.jpeg);
         border-radius: 8px;
         box-shadow: 0 2px 4px #005f41;
+        padding-top: 10%;
 
         h1{
             text-align: center;
@@ -632,7 +643,7 @@
         background-color: #4bcfa5;
         padding: 40px 0;
         text-align: center;
-        padding-top: 10%;
+        padding-top: 15%;
     }
 
     .service-title {
@@ -687,5 +698,64 @@
         text-align: justify;
         font-style: oblique;
     }
+
+    // EDITPROFILE
+
+    .editprofile {
+        height: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        padding-top: 15%;
+        background: url(https://images.pexels.com/photos/4857103/pexels-photo-4857103.jpeg);
+        background-size:cover;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        color: #005f41;
+        font-weight: bolder;
+        font-size: 20px;
+
+      h1 {
+        font-size: 42px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #005f41;
+      }
+
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      select {
+        width: 95%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #005f41;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        margin-top: 40px;
+      }
+
+      button:hover {
+        background-color: #005f41;
+      }
+
+    }
+
     }
 }
